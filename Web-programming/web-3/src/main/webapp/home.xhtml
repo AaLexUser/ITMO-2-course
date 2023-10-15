@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <!-- This file uses a template to define the layout of the page -->
+    <ui:composition template="WEB-INF/templates/template.xhtml">
+    <!-- This defines the content of the "head" section of the template -->
+        <ui:define name="head">
+            <!-- Set the title of the page -->
+            <title>Лабораторная работа #3 - Основная страница</title>
+            <script src="resources/js/home.js" type="module"></script>
+            <script src="resources/js/graph.js" type="module"></script>
+            <h:outputStylesheet  name="css/home.css"/>
+        </ui:define>
+        <!-- This defines the main content of the page -->
+        <ui:define name="main">
+            <main class="main-container">
+                <h1 class="visually-hidden">Лабораторная работа #3 - Основная страница</h1>
+                <div class="card">
+                    <h:form>
+                        <p:breadCrumb>
+                            <p:menuitem value="Start Page" outcome="goToIndex"/>
+                            <p:menuitem value="Main Page"/>
+                        </p:breadCrumb>
+                    </h:form>
+                </div>
+                <p:splitter>
+                    <p:splitterPanel>
+                        <p:card>
+                            <section>
+                                <h2><span>График</span></h2>
+                                    <canvas class="graph-canvas graph-canvas_current" id="graph" width="300" height="300">Интерактивная область графика</canvas>
+                            </section>
+                        </p:card>
+                        <p:card style="display: flex">
+                            <h2><span>Таблица</span></h2>
+                            <p:dataTable id="result_table"
+                                         styleClass="result-table"
+                                         value="#{entries.getEntries()}"
+                                         var="entry"
+                                         scrollable="true"
+                                         scrollHeight="500px"
+                                         showGridlines="true"
+                                         resizableColumns="true"
+
+                                         >
+                                <p:column headerText="X">
+                                    <h:outputText styleClass="x" value="#{entry.x}"/>
+                                </p:column>
+                                <p:column headerText="Y">
+                                    <h:outputText styleClass="y" value="#{entry.y}"/>
+                                </p:column>
+                                <p:column headerText="R" >
+                                    <h:outputText styleClass="r" value="#{entry.r}"/>
+                                </p:column>
+                                <p:column headerText="hitResult">
+                                    <h:outputText styleClass="hit" value="#{entry.hitResult}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </p:card>
+                    </p:splitterPanel>
+                    <p:splitterPanel>
+                        <section>
+                            <h2><span>Данные</span></h2>
+                            <h:form class="input-form" id="form">
+                                <p:growl id="growl" showDetail="true" />
+                                <p:panel styleClass="panel">
+                                    <p:messages id="msgs"/>
+                                    <p:panelGrid columns="3" style="width:100%">
+                                        <f:facet name="header">
+                                            <label class="panel__title">Координата X</label>
+                                        </f:facet>
+                                        <p:commandLink value="-5" onclick="selectedX(-5)"/>
+                                        <p:commandLink value="-4" onclick="selectedX(-4)"/>
+                                        <p:commandLink value="-3" onclick="selectedX(-3)"/>
+                                        <p:commandLink value="-2" onclick="selectedX(-2)"/>
+                                        <p:commandLink value="-1" onclick="selectedX(-1)"/>
+                                        <p:commandLink value="0" onclick="selectedX(0)"/>
+                                        <p:commandLink value="1" onclick="selectedX(1)"/>
+                                        <p:commandLink value="2" onclick="selectedX(2)"/>
+                                        <p:commandLink value="3" onclick="selectedX(3)"/>
+                                        <f:facet name="footer">
+                                            <h:inputHidden id="x" value="#{form.x}">
+                                                <f:validateRequired/>
+                                            </h:inputHidden>
+                                            <p:outputLabel id="x-label" value="Selected value: " />
+                                        </f:facet>
+                                    </p:panelGrid>
+                                </p:panel>
+                                <p:panel styleClass="panel">
+                                    <p:panelGrid columns="1" style="width:100%; height: 100%">
+                                        <f:facet name="header">
+                                            <label class="panel__title">Координата Y</label>
+                                        </f:facet>
+                                        <p:inputText
+                                                placeholder="(-3; 3)"
+                                                value="#{form.y}"
+                                                maxlength="5"
+                                                id="y"
+                                                required="true">
+                                            <f:validateRequired/>
+                                            <f:validateDoubleRange minimum="-3" maximum="3"/>
+                                            <p:ajax update="msgY" event="keyup"/>
+                                        </p:inputText>
+                                        <p:message for="y" id="msgY" display="icon"/>
+                                    </p:panelGrid>
+                                </p:panel>
+
+                                <p:panel styleClass="panel flex-column-inner r__panel">
+                                    <p:panelGrid columns="3" style="width:100%; height: 100%">
+                                        <f:facet name="header">
+                                            <label class="panel__title">Радиус R</label>
+                                        </f:facet>
+                                        <p:selectBooleanCheckbox itemLabel="1" value="#{form.r[0]}" styleClass="r"
+                                                                 onchange="this.checked ? selectedR(1) : deselectedR(1)"/>
+                                        <p:selectBooleanCheckbox itemLabel="1.5" value="#{form.r[1]}" styleClass="r"
+                                                                 onchange="this.checked ? selectedR(1.5) : deselectedR(1.5)"/>
+                                        <p:selectBooleanCheckbox itemLabel="2" value="#{form.r[2]}" styleClass="r"
+                                                                 onchange="this.checked ? selectedR(2) : deselectedR(2)"/>
+                                        <p:selectBooleanCheckbox itemLabel="2.5" value="#{form.r[3]}" styleClass="r"
+                                                                 onchange="this.checked ? selectedR(2.5) : deselectedR(2.5)"/>
+                                        <p:selectBooleanCheckbox itemLabel="3" value="#{form.r[4]}" styleClass="r"
+                                                                 onchange="this.checked ? selectedR(3) : deselectedR(3)"/>
+                                    </p:panelGrid>
+                                </p:panel>
+                                <p:toolbar>
+                                    <p:toolbarGroup>
+                                        <p:commandButton id = "submit-btn"
+                                                         value="Submit"
+                                                         actionListener="#{form.submit}"
+                                                         update="growl"
+                                                         icon="pi pi-check"
+                                                         styleClass="ui-button-raised" />
+                                        <p:commandButton value="Reset"
+                                                         action="#{form.clear}"
+                                                         immediate="true"
+                                                         icon="pi pi-times"
+                                                         styleClass="ui-button-raised ui-button-danger"/>
+                                    </p:toolbarGroup>
+                                </p:toolbar>
+                            </h:form>
+                        </section>
+                    </p:splitterPanel>
+                </p:splitter>
+            </main>
+        </ui:define>
+
+    </ui:composition>
+</html>

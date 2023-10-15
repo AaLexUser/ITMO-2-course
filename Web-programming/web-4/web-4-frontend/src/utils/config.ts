@@ -1,0 +1,1 @@
+export const serverHost:string = 'http://localhost:28081/'

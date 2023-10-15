@@ -1,0 +1,125 @@
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    font-family: sans-serif;
+}
+.content {
+    text-align: left;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: 1px solid black;
+    border-bottom-color: transparent;
+    padding: 1% 1% 1% 1%;
+}
+@media screen and (min-width: 810px) and (max-width: 1082px){
+    .content {
+        margin: 0 10% 0 10%;
+    }
+}
+@media screen and (max-width: 810px){
+    .content {
+        margin: 0 0 0 0;
+    }
+}
+
+footer.content{
+    border-bottom: 1px solid black;
+}
+header h1{
+    letter-spacing: 4px;
+}
+main{
+    border-color: black;
+    border-style: dashed;
+    margin-left: 0;
+    margin-right: 20%;
+}
+.inputField input{
+    width: 200px;
+    font-size: 16px;
+    color: #000000;
+    margin-top: 20px;
+    /*border: none;*/
+    border-color: black;
+    border-bottom: 1px solid #000000;
+    outline: none;
+    background: transparent;
+}
+.inputField label {
+    position: relative;
+    font-weight: bold;
+    top: 0;
+    left: -205px;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #000000;
+    pointer-events: none;
+    transition: .5s;
+}
+.inputField input::placeholder{
+    color: transparent;
+}
+.inputField input:focus ~ label,
+.inputField input:not(:placeholder-shown) ~ label {
+    font-weight: bold;
+    top: -22px;
+    color: #0068ff;
+    font-size: 16px;
+}
+
+.button{
+    margin-top: 3%;
+    width: 100px;
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-top: 1px solid black;
+    display: inline-block;
+    overflow: hidden;
+    background-color: transparent;
+    transition: .5s;
+}
+.button:hover, .button:active {
+    border: 2px solid black;
+    border-bottom: 1px solid black;
+    color: #ffff;
+    background: #0068ff;
+}
+.validate_button#reset:hover, .validate_button#reset:active{
+    background: #ff0404;
+}
+#form{
+    flex: 50%;
+}
+canvas #graph{
+    flex: 50%;
+    position: absolute;
+    top: -100px;
+}
+.table_section #table{
+    overflow: scroll;
+}
+.table_section #table th, .table_section #table td{
+    border-collapse: collapse;
+    border: 1px solid black;
+    border-spacing: 0;
+}
+.form em{
+    color:#ff0404;
+    width: 180px;
+    height: 45px;
+    position: absolute;
+    text-align: left;
+    padding: 20px 12px 10px;
+    font-style: normal;
+    z-index: 2;
+    display: none;
+}
+canvas#graph{
+    border: 2px solid black;
+    border-bottom: 1px solid black;
+}
+canvas#graph:hover{
+    cursor: cell;
+}

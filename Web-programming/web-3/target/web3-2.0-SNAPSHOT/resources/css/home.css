@@ -1,0 +1,35 @@
+.panel__title {
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.panel {
+    background: rgba(255, 255, 255, .5);
+    padding: 10px;
+    border: none;
+    margin: 5px 5px 10px 5px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+}
+.button{
+    margin: 3% 3% 3% 3%;
+    width: 100px;
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-top: 1px solid black;
+    display: inline-block;
+    overflow: hidden;
+    background-color: transparent;
+    transition: .5s;
+}
+.button:hover, .button:active {
+    border: 2px solid black;
+    border-bottom: 1px solid black;
+    color: #ffff;
+    background: #0068ff;
+}
+.reset:hover, .reset:active{
+    background: #ff0404;
+}

@@ -1,0 +1,8 @@
+/build
+/out
+*.html
+.DS_Store
+image-sepia
+.idea
+.vscode
+

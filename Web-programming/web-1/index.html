@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">    <!-- connecting css -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>WEB-LAB-1</title>
+</head>
+<body>
+</div>
+    <!-- table -->
+    <table  class="content" width="100%">
+        <thead>
+
+        </thead>
+        <tbody>
+            <tr>
+                <td width ="45%" style="vertical-align: top;">
+                    <!--Page Head-->
+                    <div id = "header" class="container"><span data-typer = "Lapin Alexey Alexandrovich<br>Group Р32101<br>Variant №1606"></div>
+                    <div id = "buttons "class="container" >
+                        <form id="form" action="php/server.php" class="validateForm" method="get"> 
+                            <table class="buttonTable">
+                                <tr>
+                                    <td style="text-align:left">Enter Х:</td>
+                                    <td></td>
+                                    <td>
+                                        <div class="inputGroup">
+                                            <input id="option1" type="checkbox" name="x_coordinate[]" class="x" value="-4"/>
+                                            <label for="option1">-4</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="inputGroup">
+                                            <input id="option2" type="checkbox" name="x_coordinate[]" class="x" value="-3"/>
+                                            <label for="option2">-3</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="inputGroup">
+                                            <input id="option3" type="checkbox" name="x_coordinate[]" class="x" value="-2"/>
+                                            <label for="option3">-2</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="inputGroup">
+                                            <input id="option4" type="checkbox" name="x_coordinate[]" class="x" value="-1"/>
+                                            <label for="option4">-1</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="inputGroup">
+                                            <input id="option5" type="checkbox" name="x_coordinate[]" class="x" value="0"/>
+                                            <label for="option5">0</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="inputGroup">
+                                            <input id="option6" type="checkbox" name="x_coordinate[]" class="x" value="1"/>
+                                            <label for="option6">1</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="inputGroup">
+                                            <input id="option7" type="checkbox" name="x_coordinate[]" class="x" value="2"/>
+                                            <label for="option7">2</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="inputGroup">
+                                            <input id="option8" type="checkbox" name="x_coordinate[]" class="x" value="3"/>
+                                            <label for="option8">3</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="inputGroup">
+                                            <input id="option9" type="checkbox" name="x_coordinate[]" class="x" value="4"/>
+                                            <label for="option9">4</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="buttonTable">
+                                <tr>
+                                    <td style="text-align: left;">Enter Y:</td>
+                                    <td>
+                                        <div id = "yField">
+                                            <input type="text" name="y_coordinate" class="y field" placeholder="From -5 to 5.">
+                                            <label>From -5 to 5.</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="buttonTable" >
+                                <tr>
+                                    <td style="text-align: left;">Enter R:</td>
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <div class="inputGroup">
+                                                        <input id="radio1" type="radio" name="r_coordinate" class="r" value="1"/>
+                                                        <label for="radio1">1</label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="inputGroup">
+                                                        <input id="radio2" type="radio" name="r_coordinate" class="r" value="1.5"/>
+                                                        <label for="radio2">1.5</label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="inputGroup">
+                                                        <input id="radio3" type="radio" name="r_coordinate" class="r" value="2"/>
+                                                        <label for="radio3">2</label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="inputGroup">
+                                                        <input id="radio4" type="radio" name="r_coordinate" class="r" value="2.5"/>
+                                                        <label for="radio4">2.5</label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="inputGroup">
+                                                        <input id="radio5" type="radio" name="r_coordinate" class="r" value="3"/>
+                                                        <label for="radio5">3</label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <input type="submit" class="submitButton button" value='Submit'/>
+                        </form>
+                        <input type="submit" class="resetButton button" value='Reset table'/>
+                        
+                    </div>
+                    <div class="container">
+                        <div class = aswerContainer, style="overflow:scroll;height:255px; padding-top: 10px;">
+                            <table class="answers" id="answersTable" border="1" cellpadding="0" cellspacing="0" width="100%" >
+                                <thead>
+                                    <th >X</th>
+                                    <th >Y</th>
+                                    <th >R</th>
+                                    <th >Is Hit</th>
+                                    <th >Current time</th>
+                                    <th >Script running time, msec</th>
+                                </thead>
+                                <tbody id = "placeForAnswer">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+                <td style="vertical-align: top;">
+                    <div class="container">
+                        <div style="text-align: left;"><span data-typer = '
+                            <b>Разработанная HTML-страница должна удовлетворять следующим требованиям:</b><br>
+                            <li>Для расположения текстовых и графических элементов необходимо использовать табличную верстку.</li>
+                            <li>Данные формы должны передаваться на обработку посредством GET-запроса.</li>
+                            <li>Таблицы стилей должны располагаться в отдельных файлах.</li>
+                            <li>При работе с CSS должно быть продемонстрировано использование селекторов дочерних элементов, селекторов псевдоклассов, селекторов псевдоэлементов, селекторов классов а также такие свойства стилей CSS, как наследование и каскадирование.</li>
+                            <li>HTML-страница должна иметь "шапку", содержащую ФИО студента, номер группы и новер варианта. При оформлении шапки необходимо явным образом задать шрифт (sans-serif), его цвет и размер в каскадной таблице стилей.</li>
+                            <li>Отступы элементов ввода должны задаваться в процентах.</li>
+                            <li>Страница должна содержать сценарий на языке JavaScript, осуществляющий валидацию значений, вводимых пользователем в поля формы. Любые некорректные значения (например, буквы в координатах точки или отрицательный радиус) должны блокироваться.</li>
+                            '>
+                        </div>
+                        <!-- <img class="areas" src="img/areas.png"> -->
+                        <canvas id="graph" width="300" height="300">
+                            Your browser does not support the canvas element.
+                        </canvas>
+                    </div>
+                    <div id="footer" class="container"><label>ITMO University<br>Saint Petersburg<br>2022</label></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+<script src="js/main.js" type = "module"></script>
+<script src="js/graph.js" type = "module"></script>
+</body>
+</html>

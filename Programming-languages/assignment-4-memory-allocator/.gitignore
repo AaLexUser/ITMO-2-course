@@ -1,0 +1,10 @@
+/.vscode
+/.cache
+/build
+/obj
+/out
+/report.xml
+.idea
+.DS-Store
+src/out
+tester/out

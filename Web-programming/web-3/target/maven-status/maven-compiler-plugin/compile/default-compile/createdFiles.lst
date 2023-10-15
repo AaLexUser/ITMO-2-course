@@ -1,0 +1,8 @@
+com/lapin/web3/db/DBHandler.class
+com/lapin/web3/utility/Checker.class
+com/lapin/web3/controllers/GrowlView.class
+com/lapin/web3/beans/Entry.class
+com/lapin/web3/db/DBConnector.class
+com/lapin/web3/beans/Entries.class
+com/lapin/web3/controllers/Form.class
+com/lapin/web3/db/DBQuery.class
