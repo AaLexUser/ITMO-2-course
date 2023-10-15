@@ -50,7 +50,7 @@
 21. Angular: шаблоны страниц, жизненный цикл компонентов, подключение CSS.
 22. Angular: клиент-серверное взаимодействие, создание, отправка и валидация данных форм.
 
-### Screenshots: 
+## Screenshots: 
 ![Start-page](./docs/img/prog1.png)
 ![Main-page](./docs/img/prog2.png)
 ![Main-page-validation](./docs/img/prog3.png)
