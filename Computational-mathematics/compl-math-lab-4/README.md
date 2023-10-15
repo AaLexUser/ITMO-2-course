@@ -463,6 +463,7 @@ Best approximation: Cubic
 Standard Deviation: 0.00249577
 ```
 ![graph-2](./docs/tex/img2.png)
+### 3
 
 ```
 Do you want to load points from a file? (y/n): n
